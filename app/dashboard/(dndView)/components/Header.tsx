@@ -2,8 +2,9 @@ import MastersRequirementsBar from "../../(mastersRequirementsBar)";
 import SettingsModal from "./SettingsModal";
 import { FC, useState } from "react";
 import Disclaimer from "./Disclaimer";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-const Header: FC = ({}) => {
+const Header: FC = ({ }) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
@@ -13,10 +14,13 @@ const Header: FC = ({}) => {
           <MastersRequirementsBar />
           <Disclaimer />
         </div>
-        <SettingsModal
-          isOpen={isSettingsOpen}
-          onOpenChange={setIsSettingsOpen}
-        />
+        <div className="flex gap-2">
+          <ThemeToggle />
+          <SettingsModal
+            isOpen={isSettingsOpen}
+            onOpenChange={setIsSettingsOpen}
+          />
+        </div>
       </div>
     </header>
   );
